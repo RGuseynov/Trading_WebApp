@@ -1,5 +1,6 @@
 import pyodbc
 
+password = "Bg4,2ciK2SX19"
 
 cnxn = pyodbc.connect("Driver={ODBC Driver 13 for SQL Server};Server=tcp:sqlserver-trading.database.windows.net,1433;Database=financial;Uid=MasterTrader;Pwd="+password+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
 cursor = cnxn.cursor()
@@ -26,13 +27,13 @@ print(rows)
 
 
 
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
+# from azure.identity import DefaultAzureCredential
+# from azure.keyvault.secrets import SecretClient
 
-credential = DefaultAzureCredential()
+# credential = DefaultAzureCredential()
 
-secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
-secret = secret_client.get_secret("secret-name")
+# secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
+# secret = secret_client.get_secret("secret-name")
 
-print(secret.name)
-print(secret.value)
+# print(secret.name)
+# print(secret.value)
