@@ -22,13 +22,16 @@ def home():
     cnxn = pyodbc.connect("Driver={ODBC Driver 17 for SQL Server};Server=tcp:sqlserver-trading.database.windows.net,1433;Database=financial;Uid=MasterTrader;Pwd="+secret.value+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
     cursor = cnxn.cursor()
 
-    cursor.execute("SELECT * FROM {}".format('SP500')) 
+    cursor.execute("SELECT TOP(50) * FROM XGBoost_BSH_1H ORDER BY Date DESC") 
     # row = cursor.fetchone()
     rows = cursor.fetchall()
+    rows.reverse()
 
-    print(rows)
+    new_rows =[]
+    for row in rows:
+        row_list = [elem for elem in row]
+        row_list.append(max(row_list[1:]))
+        print(row_list)
+        new_rows.append(row_list)
 
-
-    table = [[1,2,3],[4,5,6],[7,8,9]]
-    return render_template('index.html', data=table)
-
+    return render_template('index.html', data=new_rows)

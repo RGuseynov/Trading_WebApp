@@ -2,27 +2,53 @@
     <head>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
     </head>
-    <body>
 
+<body>
+<div class=container>
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Sell</th>
+				<th>Buy</th>
+				<th>Hold</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in data %}
+			<tr>
+				<td>{{ row[0] }}</td>
+				{% if row[1] == row[-1] %}
+					<td class="under">{{ row[1] }}</td>
+				{% else %}
+					<td>{{ row[1] }}</td>
+				{% endif %}
+				{% if row[2] == row[-1] %}
+					<td class="over">{{ row[2] }}</td>
+				{% else %}
+					<td>{{ row[2] }}</td>
+				{% endif %}
+				{% if row[3] == row[-1] %}
+					<td class="normal">{{ row[3] }}</td>
+				{% else %}
+					<td>{{ row[3] }}</td>
+				{% endif %}
+				<!-- {% for item in row[1:-1] %}
+					{% if item == row[-1] %}
+						<td class="under">{{ item }}</td>
+					{% elif item == row[-1] %}
+						<td class="normal">{{ item }}</td>
+					{% else %}
+						<td class="over">{{ item }}</td>
+					{% endif %}
+				{% endfor %} -->
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
 
-
-<table>
-    {% for row in data %}
-    <tr>
-        {% for item in row %}
-            {% if item <= 3 %}
-                <td class="under">{{ item }}</td>
-            {% elif item <= 6 %}
-                <td class="normal">{{ item }}</td>
-            {% else %}
-                <td class="over">{{ item }}</td>
-            {% endif %}
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
-
-<div class="container">
+<!-- <div class="container">
 	<table>
 		<thead>
 			<tr>
@@ -71,7 +97,6 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
-
+</div> -->
 
 </body>

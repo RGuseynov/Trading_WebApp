@@ -36,9 +36,14 @@ th {
 }
 
 
-#under { background-color: red; }
-td normal {background-color: yellow; }
-.over { background-color: green; }
+td.normal {background-color: orange; }
+td.under { background-color: red; }
+td.over { background-color: green; }
+
+
+/* .under { background-color: red; }
+.normal {background-color: yellow; }
+.over { background-color: green; } */
 
 
 /* thead {
