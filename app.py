@@ -22,7 +22,7 @@ def home():
     cnxn = pyodbc.connect("Driver={ODBC Driver 17 for SQL Server};Server=tcp:sqlserver-trading.database.windows.net,1433;Database=financial;Uid=MasterTrader;Pwd="+secret.value+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
     cursor = cnxn.cursor()
 
-    cursor.execute("SELECT TOP(50) * FROM XGBoost_BSH_1H ORDER BY Date DESC") 
+    cursor.execute("SELECT TOP(50) * FROM XGBoost_BSH_1H ORDER BY DatePrediction DESC") 
     # row = cursor.fetchone()
     rows = cursor.fetchall()
     rows.reverse()
