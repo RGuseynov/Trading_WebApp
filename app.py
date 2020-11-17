@@ -17,7 +17,6 @@ def home():
     secret_client = SecretClient(vault_url="https://tradingkeyvault.vault.azure.net/", credential=credential)
     secret = secret_client.get_secret("sqlserver-trading")
 
-    print(f"secret name is: {secret.name}")
 
     cnxn = pyodbc.connect("Driver={ODBC Driver 17 for SQL Server};Server=tcp:sqlserver-trading.database.windows.net,1433;Database=financial;Uid=MasterTrader;Pwd="+secret.value+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
     cursor = cnxn.cursor()
