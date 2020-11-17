@@ -12,9 +12,9 @@ body {
 
 .container {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -40%);
 }
 
 table {
@@ -22,17 +22,28 @@ table {
 	border-collapse: collapse;
 	overflow: auto;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+	display: block;
+	overflow-x: auto;
+    white-space: nowrap;
 }
+
+table thead { display:block; width: 100%;}
+table tbody { height:500px; overflow-y:scroll; display:block; }
 
 th,
 td {
-	padding: 15px;
+	/* padding: 25px; */
+	padding-right: 15px;
+	padding-top : 15px;
 	background-color: rgba(255,255,255,0.2);
 	color: #fff;
+	text-align: center;
+	width: 200;
 }
 
 th {
-	text-align: left;
+	text-align: center;
+	width: 190;
 }
 
 
