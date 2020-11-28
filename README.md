@@ -1,6 +1,8 @@
 # Trading_WebApp
 
-###### Simple Page Web qui affiche les dernières recommendations sur l'évolution du prix du bitcoin sur la prochaine heure toutes les heures. 
+Simple Page Web qui affiche les dernières recommendations et la probabilité de leurs justesses sur l'évolution du prix du bitcoin pour la prochaine heure toutes les heures. 
 
-![GitHub Logo](/images/webApp.png)
-Format: ![Alt Text](url)
+Ces probabilités sont récuprérées depuis une base de données qui est rafraîchi toutes les heures.
+
+### Rendu:
+![Screenshot](/images/webApp.png)

@@ -12,10 +12,16 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     
+    # url du key vault sur Azure
+    vault_url = "https://tradingkeyvault.vault.azure.net/"
+    # récupération des accés au key vault dans le context d'Azure
     credential = DefaultAzureCredential()
-    secret_client = SecretClient(vault_url="https://tradingkeyvault.vault.azure.net/", credential=credential)
+
+    # récupération des accés à la database depuis le key vault
+    secret_client = SecretClient(vault_url=vault_url, credential=credential)
     secret = secret_client.get_secret("sqlserver-trading")
 
+    # connexion au sql server depuis une machine linux
     cnxn = pyodbc.connect("Driver={ODBC Driver 17 for SQL Server};Server=tcp:sqlserver-trading.database.windows.net,1433;Database=financial;Uid=MasterTrader;Pwd="+secret.value+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
     cursor = cnxn.cursor()
 
