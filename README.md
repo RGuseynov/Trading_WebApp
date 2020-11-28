@@ -5,4 +5,4 @@ Simple Page Web qui affiche les dernières recommendations et la probabilité de
 Ces probabilités sont récuprérées depuis une base de données qui est rafraîchi toutes les heures.
 
 ### Rendu:
-![Screenshot](/images/webApp.png)
+![Screenshot](/README_images/webApp.png)
